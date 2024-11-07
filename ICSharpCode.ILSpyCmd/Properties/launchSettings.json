@@ -1,0 +1,24 @@
+{
+	"profiles": {
+		"no args": {
+			"commandName": "Project",
+			"commandLineArgs": ""
+		},
+		"print help": {
+			"commandName": "Project",
+			"commandLineArgs": "--help"
+		},
+		"generate diagrammer": {
+			"commandName": "Project",
+			// containing all types
+			"commandLineArgs": "ICSharpCode.Decompiler.dll --generate-diagrammer"
+
+			// including types in LightJson namespace while excluding types in nested LightJson.Serialization namespace, matched by what returns System.Type.FullName
+			//"commandLineArgs": "ICSharpCode.Decompiler.dll --generate-diagrammer --generate-diagrammer-include LightJson\\..+ --generate-diagrammer-exclude LightJson\\.Serialization\\..+"
+		},
+		"generate diagrammer model.json": {
+			"commandName": "Project",
+			"commandLineArgs": "ICSharpCode.Decompiler.dll --generate-diagrammer --generate-diagrammer-json-only"
+		}
+	}
+}

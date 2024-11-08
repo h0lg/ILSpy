@@ -50,9 +50,7 @@ or export it as either SVG, PNG or in [mermaid class diagram syntax](https://mer
 
 If [**XML documentation comments** are available for the source assembly](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/#create-xml-documentation-output), they're **used to annotate types and members on the generated diagrams**. Commented symbols show up highlighted, making the documentation accessible on hover.
 
-> Dealing with .Net assemblies, you've probably come across [**ILSpy**](https://github.com/icsharpcode/ILSpy) and can appreciate how useful it is to explore and understand even the most poorly documented library. Think of netAmermaid as a **visual version** of that - minus geeky details like code decompilation and symbol usage analysis. Instead,
-
-What netAmermaid offers is an **overview** over types, their members and **relations** and the ability to **unfold the domain** along them until you have enough **context** to make an informed decision. Use it as
+Generated diagrammers offer an **overview** over types, their members and **relations** and the ability to **unfold the domain** along them until you have enough **context** to make an informed decision. Use them as
 - a **mental mapping** tool to get your bearings in an **unknown domain**.
 - a **communication** tool for **your own domain** - when talking about the bigger picture with your team mates or even non-technical shareholders like product owners and users.
 
@@ -81,13 +79,6 @@ Have a look at the diagrammer generated for [SubTubular](https://github.com/h0lg
 It's got some [type relations](https://raw.githack.com/h0lg/SubTubular/netAmermaid2/netAmermaid/class-diagrammer.html?d=LR&i=tim&t=Caption-CaptionTrack-PaddedMatch-IncludedMatch-Video-VideoSearchResult-CaptionTrackResult)
 and [inheritance](https://raw.githack.com/h0lg/SubTubular/netAmermaid2/netAmermaid/class-diagrammer.html?d=LR&i=tim&t=RemoteValidated-SearchChannel-SearchCommand-Shows-SearchPlaylist-SearchPlaylistCommand-OrderOptions-SearchVideos)
 going on that offer a decent playground.
-
-> Wouldn't it be great to show off netAmermaid's capabilities applied to itself?
-Sure - but with the console app being as simple as it is, its class diagrams
-are pretty boring and don't get the benefit across.
-As with any documentation, netAmermaid starts to shine at higher complexity.
-So you could say it offers little value to itself - 
-but it rather likes to call that selfless and feel good about it.
 
 # Optimized for exploration and sharing
 
@@ -155,20 +146,6 @@ Note that the `Target` `Name` doesn't matter here and that the diagrammer is gen
   <Exec Command="$(SolutionDir)..\path\to\netAmermaid.exe --assembly $(TargetPath) --output-folder $(PublishDir)netAmermaid" />
 </Target>
 ```
-
-## Options
-
-The command line app exposes the following parameters.
-
-| shorthand, name            |                                                                                                                                                                                                                                                                                                                                                                                                          |
-| :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-a`, `--assembly`         | Required. The path or file:// URI of the .NET assembly to generate a HTML diagrammer for.                                                                                                                                                                                                                                                                                                                |
-| `-o`, `--output-folder`    | The path of the folder to generate the HTML diagrammer into. This defaults to a 'netAmermaid' folder in the directory of the `assembly`, which will be created if required.                                                                                                                                                                                                                              |
-| `-i`, `--include`          | A regular expression matching Type.FullName used to whitelist types.                                                                                                                                                                                                                                                                                                                                     |
-| `-e`, `--exclude`          | A regular expression matching Type.FullName used to blacklist types.                                                                                                                                                                                                                                                                                                                                     |
-| `-r`, `--report-excluded`  | Outputs a report of types excluded from the HTML diagrammer - whether by default because compiler-generated, explicitly by `--exclude` or implicitly by `--include`. You may find this useful to develop and debug your regular expressions.                                                                                                                                                             |
-| `-n`, `--strip-namespaces` | Space-separated namespace names that are removed for brevity from XML documentation comments. Note that the order matters: e.g. replace 'System.Collections' before 'System' to remove both of them completely.                                                                                                                                                                                          |
-| `-d`, `--docs`             | The path or file:// URI of the XML file containing the `assembly`'s documentation comments. You only need to set this if a) you want your diagrams annotated with them and b) the file name differs from that of the `assembly`. To enable XML documentation output for your `assembly` see https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/#create-xml-documentation-output . |
 
 ## Tips for using the console app
 

@@ -70,7 +70,7 @@ namespace ICSharpCode.ILSpyX.MermaidDiagrammer
 				jsonModel = new {
 					diagrammer.SourceAssemblyName,
 					diagrammer.SourceAssemblyVersion,
-					BuilderVersion = AssemblyInfo.Version,
+					BuilderVersion = BuilderAssembly.Version,
 					RepoUrl,
 					// pre-serialize to a string so that we don't have to re-serialize it in the JS build task
 					Model = Serialize(jsonModel)
@@ -110,7 +110,7 @@ namespace ICSharpCode.ILSpyX.MermaidDiagrammer
 				var html = htmlTemplate
 					.Replace("{{SourceAssemblyName}}", model.SourceAssemblyName)
 					.Replace("{{SourceAssemblyVersion}}", model.SourceAssemblyVersion)
-					.Replace("{{BuilderVersion}}", AssemblyInfo.Version)
+					.Replace("{{BuilderVersion}}", BuilderAssembly.Version)
 					.Replace("{{RepoUrl}}", RepoUrl)
 					.Replace("{{Model}}", modelJson);
 

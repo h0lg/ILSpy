@@ -20,11 +20,11 @@ using System.Reflection;
 
 namespace ICSharpCode.ILSpyX.MermaidDiagrammer
 {
-	internal static class AssemblyInfo
+	internal static class BuilderAssembly
 	{
 		internal static readonly string? Version;
 
-		static AssemblyInfo()
+		static BuilderAssembly()
 		{
 			Assembly assembly = Assembly.GetExecutingAssembly();
 			var version = assembly.GetName().Version?.ToString();
